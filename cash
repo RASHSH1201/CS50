@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <cs50.h>
+int main(void)
+{
+    int count = 0;
+    int quarter = 25;
+    int dime = 10;
+    int nickel = 5;
+    int penny = 1;
+    bool car = false;
+
+    int change;
+
+
+  while (car == false){
+            change = get_int("amount: ");
+
+        if (change < 0){
+             change = get_int("amount: ");
+
+
+        }
+        else if(change > 0)
+        {
+            car = true;
+        }}
+        while (change >= 25)
+        {
+            change-=quarter;
+
+            count ++;
+        }
+        while (change >= 10 && change < 25)
+        {
+            change-=dime;
+
+            count ++;
+        }
+        while (change >= 5 && change < 10)
+        {
+            change-=nickel;
+
+            count ++;
+        }
+        while (change > 0 && change < 5)
+        {
+            change-=penny;
+
+            count ++;
+        }
+
+printf("%i\n",count);
+    }
+
+
+
+
+
+
+
+
