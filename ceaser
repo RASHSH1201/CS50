@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
+
+int main(int argc, string argv[])
+{
+    // Check if the correct number of command-line arguments is provided
+    if (argc != 2)
+    {
+        printf("Usage: ./program <key>\n");
+        return 1;
+    }
+
+    // Check if the provided key contains only digits
+    for (int i = 0; i < strlen(argv[1]); i++)
+    {
+        if (!isdigit(argv[1][i]))
+        {
+            printf("Key must be a non-negative integer.\n");
+            return 1;
+        }
+    }
+
+    // Convert the key to an integer
+    int key = atoi(argv[1]);
+
+    // Prompt the user for plaintext input
+    string plaintext = get_string("Plaintext: ");
+
+    // Encrypt the plaintext using the Caesar cipher
+    printf("Ciphertext: ");
+    for (int i = 0; i < strlen(plaintext); i++)
+    {
+        if (isupper(plaintext[i]))
+        {
+            printf("%c", (plaintext[i] - 'A' + key) % 26 + 'A');
+        }
+        else if (islower(plaintext[i]))
+        {
+            printf("%c", (plaintext[i] - 'a' + key) % 26 + 'a');
+        }
+        else
+        {
+            printf("%c", plaintext[i]); // Non-alphabetic characters remain unchanged
+        }
+    }
+    printf("\n");
+
+    return 0;
+}
+
+
+
+
+
+
